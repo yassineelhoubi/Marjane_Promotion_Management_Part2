@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "```\r Depuis le brief précèdent, le Groupe Marjane vous a invité à développer une application web responsive qui va faciliter la gestion globale de ses promotions",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yassineelhoubi/Marjane_Promotion_Management_Part2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yassineelhoubi/Marjane_Promotion_Management_Part2/issues"
+  },
+  "homepage": "https://github.com/yassineelhoubi/Marjane_Promotion_Management_Part2#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.9"
+  }
+}
