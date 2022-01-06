@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="../../dist/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-cyan-50">
+  <div class=" container py-6 sm:py-8 lg:py-12">
+    <div class="flex justify-center mb-5">
+
+      <img src="../assets/img/logo1.png" width="100" alt="">
+    </div>
+    <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
+
+      <div class="border rounded-lg gap-4 p-4 mb-6 md:mb-4">
+        <h2 class="text-gray-800 text-2xl lg:text-3xl font-medium italic text-center mb-2 md:mb-8 xl:mb-12">Hello Please Chose Your
+          Role</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 lg:gap-x-8 gap-y-4 ">
+          <button class="block w-full bg-sky-200 hover:bg-sky-300
+        focus-visible:ring ring-indigo-300 text-gray-500
+         active:text-gray-700 text-sm md:text-base font-semibold
+          text-center rounded-lg outline-none transition duration-100
+           px-8 py-3">Admin</button>
+          <button class="block w-full bg-purple-200 hover:bg-purple-300
+        focus-visible:ring ring-indigo-300 text-gray-500
+         active:text-gray-700 text-sm md:text-base font-semibold
+          text-center rounded-lg outline-none transition duration-100
+           px-8 py-3">Sub admin</button>
+          <button class="block w-full bg-pink-200 hover:bg-pink-300
+        focus-visible:ring ring-indigo-300 text-gray-500
+         active:text-gray-700 text-sm md:text-base font-semibold
+          text-center rounded-lg outline-none transition duration-100
+           px-8 py-3">Manager</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <div class="container w-full max-w-md px-4 md:px-8">
+    <form class="bg-cyan-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+          Email
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="email" type="text" placeholder="email">
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          Password
+        </label>
+        <input
+          class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          id="password" type="password" placeholder="******************">
+        <!-- <p class="text-red-500 text-xs italic">Please choose a password.</p> -->
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="button">
+          Sign In
+        </button>
+        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+          Forgot Password?
+        </a>
+      </div>
+    </form>
+    <p class="text-center text-gray-500 text-xs">
+      &copy;Marjane Maroc
+    </p>
+  </div>
+</body>
+
+</html>
