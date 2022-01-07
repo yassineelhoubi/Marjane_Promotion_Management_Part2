@@ -18,5 +18,8 @@
   "homepage": "https://github.com/yassineelhoubi/Marjane_Promotion_Management_Part2#readme",
   "devDependencies": {
     "tailwindcss": "^3.0.9"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4"
   }
 }

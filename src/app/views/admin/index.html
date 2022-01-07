@@ -8,15 +8,46 @@
     <title>Admin</title>
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="/src/assets/css/style.css">
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
 
 </head>
 
 <body>
-    <div class="relative min-h-screen flex">
+    <div class="relative min-h-screen md:flex">
+        <!-- mobile menu bar -->
+        <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
+            <!-- logo -->
+            <a href="" class="block p-4 text-white font-bold">Marjane</a>
+            <!-- mobile menu button -->
+            <button class=" mobileMenuBtn p-4 focus:outline-none focus:bg-gray-700">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
         <!-- sidebar -->
-        <div class="bg-blue-800 text-blue-100 w-64">
-            logo
-            <nav>nav</nav>
+        <div
+            class="sidebar bg-blue-800 text-blue-100 w-64 space-y-6 px-2 py-7 absolute md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out">
+            <a href="#" class="text-white flex items-end space-x-2 px-4">
+                <img src="/src/assets/img/logo3.png" class="h-10 w-10" alt="logo marjane">
+                <span class="font-extrabold text-2xl">Marjane</span>
+            </a>
+            <nav>
+                <a href=""
+                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                    test
+                </a>
+                <a href=""
+                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                    test
+                </a>
+                <a href=""
+                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                    test
+                </a>
+                <a href=""
+                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                    test
+                </a>
+            </nav>
         </div>
         <!-- content -->
         <div class="flex-1 p-10 text-2xl font-bold">
@@ -24,5 +55,6 @@
         </div>
     </div>
 </body>
+<script src="/src/assets/js/style.js"></script>
 
 </html>
