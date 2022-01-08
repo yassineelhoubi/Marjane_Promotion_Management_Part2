@@ -18,7 +18,7 @@ if (loginForm) {
                 .then((res) => {
                     if(res.data.token !== undefined){
                         localStorage.setItem('token', res.data.token);
-                        location.href = 'index.html';
+                        location.href = 'dashboard.html';
                     }else{
                         Swal.fire({
                             icon: 'info',
