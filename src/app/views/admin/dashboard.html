@@ -32,9 +32,9 @@
                 <span class="font-extrabold text-2xl">Marjane</span>
             </a>
             <nav>
-                <a href=""
+                <a href="dashboard.html" 
                     class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
-                    test
+                    Dashboard
                 </a>
                 <a href=""
                     class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
@@ -52,10 +52,39 @@
         </div>
         <!-- content -->
         <div class="flex-1 p-10 text-2xl font-bold">
-            content goes here
+            <main class="w-full flex-grow p-6">
+                <h2 class="text-3xl text-black pb-6">Dashboard</h2>
+                <div class="flex flex-wrap mt-6">
+                    <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
+                        <p class="text-lg pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i></i> Promotions By Center
+                        </p>
+                        <div class="p-6 bg-white">
+                            <canvas id="chartOne" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 pl-0 lg:pl-2 mt-12 lg:mt-0">
+                        <p class="text-lg pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Promotions Accepted
+                        </p>
+                        <div class="p-6 bg-white">
+                            <canvas id="chartTwo" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+
+            </main>
+
+
         </div>
     </div>
+    </div>
 </body>
+<!--Graphs -->
+<script src="/node_modules/chart.js/dist/chart.js"></script>
+<script src="/src/assets/js/graphs.js"></script>
+<!-- Style -->
 <script src="/src/assets/js/style.js"></script>
 
 </html>

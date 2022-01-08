@@ -4,7 +4,7 @@
   "description": "```\r Depuis le brief précèdent, le Groupe Marjane vous a invité à développer une application web responsive qui va faciliter la gestion globale de ses promotions",
   "main": "tailwind.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tailwindcss": "npx tailwindcss -i ./src/assets/css/input.css -o ./dist/output.css --watch"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "axios": "^0.24.0",
+    "chart.js": "^3.7.0",
     "sweetalert2": "^11.3.3"
   }
 }
