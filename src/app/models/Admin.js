@@ -17,8 +17,6 @@ export default class Admin {
                 .catch((err) => { reject(err); })
         });
     }
-    CreateSubAdmin() {
 
-    }
 
 }
