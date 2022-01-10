@@ -29,8 +29,8 @@ const getAllSubAdmin = () => {
     subAdmin.read()
         .then(async (res) => {
             var output = ``;
-             await res.data.subAdmins.forEach((e) => {
-                 output += `<tr class="hover:bg-grey-lighter">
+            await res.data.subAdmins.forEach((e) => {
+                output += `<tr class="hover:bg-grey-lighter">
                 <td class="py-4 px-6 border-b border-grey-light">${e.fName}</td>
                 <td class="py-4 px-6 border-b border-grey-light">${e.lName}</td>
                 <td class="py-4 px-6 border-b border-grey-light">${e.email}</td>
@@ -104,14 +104,30 @@ window.deleteOrRemeveCenter = (id) => {
                 cancelButtonColor: '#3085d6',
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
+                //   confirm to delete sub-Admin
                 if (result.isConfirmed) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'this Sub-Admin has been deleted.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    const subAdmin = new SubAdmin(id)
+                    subAdmin.delete()
+                        .then(() => {
+                            // deleted
+                            getAllSubAdmin()
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'this Sub-Admin has been deleted.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }).catch((err) => {
+                            // error
+                            console.log(err)
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        })
+
                 }
             })
             //   remove Center

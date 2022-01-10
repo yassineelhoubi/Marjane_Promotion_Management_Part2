@@ -44,7 +44,17 @@ export default class Admin {
                 .catch((err) => { reject(err); })
 
         });
+    }
 
+    delete() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            axios.delete("http://localhost:3000/api/admin/deleteSubAdmin/" + this.id, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
     }
 
 }
