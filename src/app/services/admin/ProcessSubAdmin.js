@@ -17,27 +17,18 @@ window.onLoad = () => {
 /* bring Centers */
 const getCenters = (createNewSubAdmin) => {
     const center = new Center();
-    if (createNewSubAdmin) {
+
         center.getCenters()
             .then((res) => {
                 res.data.centers.map((e) => {
-                    formCreateSubAdmin.center.innerHTML += `<option value="${e.id}">${e.name}</option>`
+                    createNewSubAdmin?formCreateSubAdmin.center.innerHTML += `<option value="${e.id}">${e.name}</option>`
+                    :formUdateSubAdmin.center.innerHTML += `<option value="${e.id}">${e.name}</option>`;
                 })
             })
             .catch((err) => {
                 console.log(err)
             })
-    } else {
-        center.getCenters()
-            .then((res) => {
-                res.data.centers.map((e) => {
-                    formUdateSubAdmin.center.innerHTML += `<option value="${e.id}">${e.name}</option>`
-                })
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
+
 }
 /* Bring and show subAdmins */
 const getAllSubAdmin = () => {
@@ -81,7 +72,7 @@ if (formCreateSubAdmin) {
         subAdmin.create()
             .then((res) => {
                 getAllSubAdmin()
-                formCreateSubAdminModal.classList.toggle('hidden')
+                createSubAdminModal.classList.toggle('hidden')
                 Swal.fire({
                     icon: 'success',
                     title: 'Oops...',
@@ -242,7 +233,7 @@ if (formUdateSubAdmin) {
         const lName = formUdateSubAdmin.lName.value;
         const idCenter = formUdateSubAdmin.center.value;
         const id = formUdateSubAdmin.subAdminId.value;
-        const subAdmin = new SubAdmin(id, fName, lName, null, null, idCenter)
+        const subAdmin = new SubAdmin(id, lName, fName, null, null, idCenter)
         subAdmin.update()
             .then((res) => {
                 // updated
