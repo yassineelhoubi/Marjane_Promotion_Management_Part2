@@ -34,5 +34,17 @@ export default class Admin {
                 .catch((err) => { reject(err); })
         });
     }
+    removeCenter() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            axios.put("http://localhost:3000/api/admin/removeCenter/" + this.id, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+
+        });
+
+    }
 
 }

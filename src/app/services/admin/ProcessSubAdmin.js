@@ -10,7 +10,7 @@ window.onLoad = () => {
     getCenters()
     getAllSubAdmin()
 }
-
+/* bring Centers */
 const getCenters = () => {
     const center = new Center();
     center.getCenters()
@@ -23,7 +23,7 @@ const getCenters = () => {
             console.log(err)
         })
 }
-
+/* Bring and show subAdmins */
 const getAllSubAdmin = () => {
     const subAdmin = new SubAdmin();
     subAdmin.read()
@@ -38,7 +38,7 @@ const getAllSubAdmin = () => {
                     <button
                         class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-2 border border-blue-500 hover:border-transparent rounded"><i
                             class="far fa-edit"></i></button>
-                    <button
+                    <button onclick="deleteOrRemeveCenter(${e.id})"
                         class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white px-2 border border-red-500 hover:border-transparent rounded"><i
                             class="fas fa-user-slash"></i></button>
                 </td>
@@ -50,7 +50,7 @@ const getAllSubAdmin = () => {
             console.log(err)
         })
 }
-
+/* create new subAdmin */
 if (createSubAdmin) {
     createSubAdmin.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -78,5 +78,76 @@ if (createSubAdmin) {
                     text: 'Can\'t create',
                 })
             })
+    })
+}
+/* alert to confirm delete or remove center */
+window.deleteOrRemeveCenter = (id) => {
+    Swal.fire({
+        title: 'Are you sure?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete Sub-Admin',
+        cancelButtonText: "just, remove Center"
+    }).then((result) => {
+        //   delete sub-Admin
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'Delete Sub-Admin?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'this Sub-Admin has been deleted.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+            //   remove Center
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire({
+                title: 'Remove Center?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, Remove it!'
+            }).then((result) => {
+                // confirmed
+                if (result.isConfirmed) {
+                    const subAdmin = new SubAdmin(id)
+                    subAdmin.removeCenter()
+                        .then(() => {
+                            // center was removed
+                            getAllSubAdmin()
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'The Center was Removed..',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }).catch((err) => {
+                            // error
+                            console.log(err)
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+                        })
+                }
+            })
+        }
     })
 }
