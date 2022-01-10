@@ -245,6 +245,9 @@ if (formUdateSubAdmin) {
         const subAdmin = new SubAdmin(id, fName, lName, null, null, idCenter)
         subAdmin.update()
             .then((res) => {
+                // updated
+                updateSubAdminModal.classList.toggle('hidden')//To hide the modal
+                getAllSubAdmin()//to refresh the list
                 Swal.fire({
                     icon: 'success',
                     title: 'Update with Success',
