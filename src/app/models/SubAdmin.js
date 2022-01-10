@@ -1,4 +1,4 @@
-export default class Admin {
+export default class SubAdmin {
     constructor(id, lName, fName, email, password, idCenter) {
         this.lName = lName;
         this.fName = fName;
