@@ -56,12 +56,27 @@ export default class Admin {
                 .catch((err) => { reject(err); })
         });
     }
-    get(){
+    get() {
         return new Promise((resolve, reject) => {
             const config = {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             };
             axios.get("http://localhost:3000/api/admin/getSubAdmin/" + this.id, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
+    update() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            const obj = {
+                fName: this.fName,
+                lName: this.lName,
+                idCenter: this.idCenter,
+            }
+            axios.put("http://localhost:3000/api/admin/updateSubAdmin/" + this.id, obj, config)
                 .then((res) => { resolve(res); })
                 .catch((err) => { reject(err); })
         });

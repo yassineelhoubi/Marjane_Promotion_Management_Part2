@@ -17,7 +17,7 @@ window.onLoad = () => {
 /* bring Centers */
 const getCenters = (createNewSubAdmin) => {
     const center = new Center();
-    if(createNewSubAdmin){
+    if (createNewSubAdmin) {
         center.getCenters()
             .then((res) => {
                 res.data.centers.map((e) => {
@@ -27,7 +27,7 @@ const getCenters = (createNewSubAdmin) => {
             .catch((err) => {
                 console.log(err)
             })
-    }else{
+    } else {
         center.getCenters()
             .then((res) => {
                 res.data.centers.map((e) => {
@@ -190,9 +190,10 @@ window.deleteOrRemeveCenter = (id) => {
 window.updateSubAdmin = (id) => {
     const subAdmin = new SubAdmin(id)
     subAdmin.get().then((res) => {
-        
+
         const obj = res.data.result;
-        contentModalUpdateSubAdmin.innerHTML=`<div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
+        contentModalUpdateSubAdmin.innerHTML = `<div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
+        <input value="${obj.id}" name="subAdminId" hidden />
         <div class="w-full px-2 md:w-1/2">
             <label class="block mb-1" for="fName">First name</label>
             <input
@@ -210,9 +211,9 @@ window.updateSubAdmin = (id) => {
         <div class="w-full">
             <label class="block mb-1" for="center">Center</label>
             <div class="relative inline-block w-full text-gray-700">
-                <select name="center" value="${obj.Center[0].id}"
+                <select name="center" value="${obj.Center[0]?.id}"
                     class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline">
-                    <option value="" selected disabled hidden>Choose Center</option>
+                    <option value="" selected disabled hidden>Choose Center</option>&
                 </select>
                 <div
                     class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -227,10 +228,37 @@ window.updateSubAdmin = (id) => {
     </div>`
         updateSubAdminModal.classList.toggle('hidden')
         getCenters(false);
-        
+
     })
         .catch((err) => {
             console.log(err)
         })
-
+}
+// submit update SubAdmin
+if (formUdateSubAdmin) {
+    formUdateSubAdmin.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const fName = formUdateSubAdmin.fName.value;
+        const lName = formUdateSubAdmin.lName.value;
+        const idCenter = formUdateSubAdmin.center.value;
+        const id = formUdateSubAdmin.subAdminId.value;
+        const subAdmin = new SubAdmin(id, fName, lName, null, null, idCenter)
+        subAdmin.update()
+            .then((res) => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Update with Success',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch((err) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+    })
 }
