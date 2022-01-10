@@ -27,9 +27,10 @@ const getCenters = () => {
 const getAllSubAdmin = () => {
     const subAdmin = new SubAdmin();
     subAdmin.read()
-        .then((res) => {
-            res.data.subAdmins.map((e) => {
-                subAdminsList.innerHTML += `<tr class="hover:bg-grey-lighter">
+        .then(async (res) => {
+            var output = ``;
+             await res.data.subAdmins.forEach((e) => {
+                 output += `<tr class="hover:bg-grey-lighter">
                 <td class="py-4 px-6 border-b border-grey-light">${e.fName}</td>
                 <td class="py-4 px-6 border-b border-grey-light">${e.lName}</td>
                 <td class="py-4 px-6 border-b border-grey-light">${e.email}</td>
@@ -45,6 +46,7 @@ const getAllSubAdmin = () => {
     
             </tr>`
             })
+            subAdminsList.innerHTML = output
         })
         .catch((err) => {
             console.log(err)
