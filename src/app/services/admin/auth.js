@@ -34,3 +34,7 @@ if (loginForm) {
 
     })
 }
+window.logout = () => {
+    localStorage.removeItem("token");
+    location.href = 'login.html';
+}

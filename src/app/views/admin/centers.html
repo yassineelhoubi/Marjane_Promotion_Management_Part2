@@ -26,29 +26,36 @@
         </div>
         <!-- sidebar -->
         <div
-            class="sidebar bg-blue-800 text-blue-100 w-64 space-y-6 px-2 py-7 absolute md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out">
-            <a href="#" class="text-white flex items-end space-x-2 px-4">
-                <img src="/src/assets/img/logo3.png" class="h-10 w-10" alt="logo marjane">
-                <span class="font-extrabold text-2xl">Marjane</span>
-            </a>
-            <nav>
-                <a href="dashboard.html"
-                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
-                    Dashboard
+            class="sidebar bg-blue-800 text-blue-100 w-64 space-y-6 px-2 py-7 absolute md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out ">
+
+            <div>
+                <a href="#" class="text-white flex items-end space-x-2 px-4">
+                    <img src="/src/assets/img/logo3.png" class="h-10 w-10" alt="logo marjane">
+                    <span class="font-extrabold text-2xl">Marjane</span>
                 </a>
-                <a href="createSubAdmin.html"
-                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
-                    Sub Admin
-                </a>
-                <a href="centers.html"
-                    class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
-                    Centers
-                </a>
-            </nav>
+                <div class="pt-4 flex justify-center">
+                    <button onclick="logout()" type="button"
+                        class="text-white bg-blue-400 hover:bg-blue-600  font-medium rounded-lg text-sm px-5 py-2.5 text-center">Logout</button>
+                </div>
+                <nav class="pt-8">
+                    <a href="dashboard.html"
+                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                        Dashboard
+                    </a>
+                    <a href="createSubAdmin.html"
+                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                        Sub Admin
+                    </a>
+                    <a href="centers.html"
+                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                        Centers
+                    </a>
+                </nav>
+            </div>
         </div>
         <!-- content -->
         <div class="flex-1 p-10 font-bold">
-          
+
             <!-- table -->
             <div class="w-full mt-12">
                 <p class="md:text-xl pb-3 flex items-center">
@@ -60,8 +67,7 @@
                         <thead>
                             <tr>
                                 <th
-                                    
-                                class="py-4 sm:px-48 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+                                    class="py-4 sm:px-48 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                                     Name</th>
 
                                 <th
@@ -85,4 +91,8 @@
 <script src="/src/assets/js/style.js"></script>
 <!-- process centers -->
 <script type="module" src="/src/app/services/admin/processCenter.js"></script>
+<!-- auth -->
+<script type="module" src="/src/app/services/admin/auth.js"></script>
+
+
 </html>
