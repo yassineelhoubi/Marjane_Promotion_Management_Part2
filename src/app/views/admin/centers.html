@@ -13,7 +13,7 @@
     <script defer src="../../services/admin/isAdmin.js"></script>
 </head>
 
-<body class="hidden">
+<body onload="onLoad()" class="hidden">
     <div class="relative min-h-screen md:flex">
         <!-- mobile menu bar -->
         <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
@@ -32,7 +32,7 @@
                 <span class="font-extrabold text-2xl">Marjane</span>
             </a>
             <nav>
-                <a href="dashboard.html" 
+                <a href="dashboard.html"
                     class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
                     Dashboard
                 </a>
@@ -47,37 +47,42 @@
             </nav>
         </div>
         <!-- content -->
-        <div class="flex-1 p-10 mt-12 font-bold">
-            <main class="w-full flex-grow">
-                <h2 class="text-3xl text-black pb-6">Dashboard</h2>
-                <div class="flex flex-wrap mt-6">
-                    <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
-                        <p class="text-lg pb-3 flex items-center">
-                            <i class="fas fa-check mr-3"></i></i> Promotions By Center
-                        </p>
-                        <div class="p-6 bg-white">
-                            <canvas id="chartOne" width="400" height="200"></canvas>
-                        </div>
-                    </div>
-                    <div class="w-full lg:w-1/2 pl-0 lg:pl-2 mt-12 lg:mt-0">
-                        <p class="text-lg pb-3 flex items-center">
-                            <i class="fas fa-check mr-3"></i> Promotions Accepted
-                        </p>
-                        <div class="p-6 bg-white">
-                            <canvas id="chartTwo" width="400" height="200"></canvas>
-                        </div>
-                    </div>
+        <div class="flex-1 p-10 font-bold">
+          
+            <!-- table -->
+            <div class="w-full mt-12">
+                <p class="md:text-xl pb-3 flex items-center">
+                    <i class="fas fa-list mr-3"></i> List
+                </p>
+                <div class="bg-white overflow-auto">
+                    <table class="text-left w-full border-collapse">
+                        <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+                        <thead>
+                            <tr>
+                                <th
+                                    
+                                class="py-4 sm:px-48 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+                                    Name</th>
+
+                                <th
+                                    class="py-4 px-6  bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+                                    Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--  -->
+                        </tbody>
+                    </table>
                 </div>
-            </main>
+            </div>
+            <!--  -->
         </div>
         <!--  -->
     </div>
 
 </body>
-<!--Graphs -->
-<script src="/node_modules/chart.js/dist/chart.js"></script>
-<script src="/src/assets/js/graphs.js"></script>
 <!-- Style -->
 <script src="/src/assets/js/style.js"></script>
-
+<!-- process centers -->
+<script type="module" src="/src/app/services/admin/processCenter.js"></script>
 </html>
