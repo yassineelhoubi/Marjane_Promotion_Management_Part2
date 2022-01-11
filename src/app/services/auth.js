@@ -62,7 +62,7 @@ if (loginForm) {
                     .then((res) => {
                         if (res.data.token !== undefined) {
                             localStorage.setItem('token', res.data.token);
-                            // location.href = 'dashboard.html';
+                            location.href = 'subAdmin/dashboard.html';
                         } else {
                             Swal.fire({
                                 icon: 'info',
