@@ -7,6 +7,17 @@ export default class SubAdmin {
         this.password = password;
         this.idCenter = idCenter;
     }
+    login() {
+        return new Promise((resolve, reject) => {
+            const obj = {
+                email: this.email,
+                password: this.password
+            }
+            axios.post("http://localhost:3000/api/subAdmin/login", obj)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
     create() {
         return new Promise((resolve, reject) => {
             const obj = {

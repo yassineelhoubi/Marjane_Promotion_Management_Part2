@@ -8,6 +8,7 @@
   <title>Authentication</title>
   <link href="/dist/output.css" rel="stylesheet">
   <link rel="stylesheet" href="/src/assets/css/style.css">
+  <script src="/node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -25,20 +26,21 @@
       <div class="container w-full max-w-md px-4 md:px-8">
         <!-- buttons -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-x-6 lg:gap-x-8 gap-y-4 mb-4">
-          <button class="block w-full bg-purple-200 hover:bg-purple-300
-          focus-visible:ring ring-indigo-300 text-gray-500
-           active:text-gray-700 text-sm md:text-base font-semibold
+          <button onclick="asSubAdmin()" id="btnSubAdmin" class="block w-full bg-blue-100 
+          hover:bg-blue-500 hover:text-white text-gray-500
+           active:text-white  text-sm md:text-base font-semibold
             text-center rounded-lg outline-none transition duration-100
              px-8 py-2">Sub admin</button>
-          <button class="block w-full bg-pink-200 hover:bg-pink-300
-          focus-visible:ring ring-indigo-300 text-gray-500
+          <button onclick="asManager()" id="btnManager" class="block w-full bg-blue-100 
+          hover:bg-blue-500 hover:text-white text-gray-500
            active:text-gray-700 text-sm md:text-base font-semibold
             text-center rounded-lg outline-none transition duration-100
              px-8 py-2">Manager</button>
         </div>
         <!-- login form -->
-        <form class="bg-cyan-100 shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
+        <form id="loginForm" class=" shadow-md rounded px-8 pt-6 pb-8 mb-4 ">
           <div class="mb-4">
+            <input type="hidden" id="role">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
               Email
             </label>
@@ -58,7 +60,7 @@
           <div class="flex items-center justify-between">
             <button
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button">
+              type="submit">
               Sign In
             </button>
             <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
@@ -74,7 +76,8 @@
 
     </div>
   </div>
-
+  <script type="module" src="/src/app/services/auth.js"></script>
+  <script src="/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 </body>
 
 </html>
