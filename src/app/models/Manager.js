@@ -17,6 +17,16 @@ export default class Manager {
                 .catch((err) => { reject(err); })
         });
     }
+    getAllManagerCenter() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            axios.get("http://localhost:3000/api/subAdmin/getAllManagerCenter", config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
 
 
 }
