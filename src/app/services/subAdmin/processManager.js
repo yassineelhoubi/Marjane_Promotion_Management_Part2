@@ -1,9 +1,24 @@
 import Manager from "../../models/Manager.js"
+import Category from "../../models/Category.js"
 const managersList = document.querySelector('tbody');//table body //list of managers
+const formCreateManager = document.querySelector('#formCreateManager');//form for create new subAdmin
 window.onLoad = () => {
     getAllManagerCenter()
+    getCategoriesCenter()
 }
 
+const getCategoriesCenter = () => {
+    const category = new Category();
+    category.getCategoriesCenter()
+        .then((res) => {
+            res.data.categories.map((e) => {
+                formCreateManager.category.innerHTML += `<option value="${e.id}">${e.name}</option>`;
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+}
 const getAllManagerCenter = () => {
     const manager = new Manager();
     manager.getAllManagerCenter()
@@ -31,5 +46,4 @@ const getAllManagerCenter = () => {
         .catch((err) => {
             console.log(err)
         })
-
 }
