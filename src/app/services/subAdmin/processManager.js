@@ -2,6 +2,7 @@ import Manager from "../../models/Manager.js"
 import Category from "../../models/Category.js"
 const managersList = document.querySelector('tbody');//table body //list of managers
 const formCreateManager = document.querySelector('#formCreateManager');//form for create new subAdmin
+const createManagerModal = document.querySelector('.createManagerModal');//modal for create new subAdmin
 window.onLoad = () => {
     getAllManagerCenter()
     getCategoriesCenter()
@@ -46,4 +47,34 @@ const getAllManagerCenter = () => {
         .catch((err) => {
             console.log(err)
         })
+}
+
+/* create new subAdmin */
+if (formCreateManager) {
+    formCreateManager.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const fName = formCreateManager.fName.value;
+        const lName = formCreateManager.lName.value;
+        const email = formCreateManager.email.value;
+        const password = formCreateManager.password.value;
+        const idCategory = formCreateManager.category.value;
+        const manager = new Manager(null, fName, lName, email, password, idCategory)
+        manager.create()
+            .then((res) => {
+                getAllManagerCenter()
+                createManagerModal.classList.toggle('hidden')
+                Swal.fire({
+                    icon: 'success',
+                    title: res.data.response,
+                })
+            })
+            .catch((err) => {
+                console.log(err)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Can\'t create',
+                })
+            })
+    })
 }

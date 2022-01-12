@@ -1,10 +1,11 @@
 export default class Manager {
-    constructor(lName, fName, id, email, password) {
+    constructor(id, fName, lName, email, password, idCategory) {
         this.lName = lName;
         this.fName = fName;
         this.id = id;
         this.email = email;
         this.password = password;
+        this.idCategory = idCategory;
     }
     login() {
         return new Promise((resolve, reject) => {
@@ -27,6 +28,22 @@ export default class Manager {
                 .catch((err) => { reject(err); })
         });
     }
-
+    create() {
+        return new Promise((resolve, reject) => {
+            const obj = {
+                fName: this.fName,
+                lName: this.lName,
+                email: this.email,
+                password: this.password,
+                idCategory: this.idCategory,
+            }
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            axios.post("http://localhost:3000/api/subAdmin/createManager", obj, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
 
 }
