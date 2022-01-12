@@ -35,7 +35,7 @@ const getAllManagerCenter = () => {
                     <button onclick="updateSubAdmin(${e.id})"
                         class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white px-2 border border-blue-500 hover:border-transparent rounded"><i
                             class="far fa-edit"></i></button>
-                    <button onclick="deleteOrRemeveCenter(${e.id})"
+                    <button onclick="deleteManager(${e.id})"
                         class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white px-2 border border-red-500 hover:border-transparent rounded"><i
                             class="fas fa-user-slash"></i></button>
                 </td>
@@ -76,5 +76,42 @@ if (formCreateManager) {
                     text: 'Can\'t create',
                 })
             })
+    })
+}
+
+/* alert to confirm delete manager */
+window.deleteManager = (id) => {
+    Swal.fire({
+        title: 'delete Manager?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it',
+        cancelButtonText: "Cancel"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const manager = new Manager(id)
+            manager.delete()
+                .then(() => {
+                    // deleted
+                    getAllManagerCenter()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'this Manager has been deleted.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }).catch((err) => {
+                    // error
+                    console.log(err)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    })
+                })
+        }
     })
 }
