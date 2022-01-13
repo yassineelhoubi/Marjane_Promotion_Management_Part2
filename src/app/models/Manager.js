@@ -56,4 +56,25 @@ export default class Manager {
         });
     }
 
+    update() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            axios.delete("http://localhost:3000/api/subAdmin/updateManager/" + this.id, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
+    get() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            };
+            axios.get("http://localhost:3000/api/subadmin/getManager/" + this.id, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
+
 }
