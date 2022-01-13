@@ -61,7 +61,12 @@ export default class Manager {
             const config = {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             };
-            axios.delete("http://localhost:3000/api/subAdmin/updateManager/" + this.id, config)
+            const obj = {
+                fName: this.fName,
+                lName: this.lName,
+                idCategory: this.idCategory,
+            }
+            axios.put("http://localhost:3000/api/subAdmin/updateManager/" + this.id, obj, config)
                 .then((res) => { resolve(res); })
                 .catch((err) => { reject(err); })
         });

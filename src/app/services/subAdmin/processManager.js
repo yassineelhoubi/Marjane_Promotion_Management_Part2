@@ -18,7 +18,7 @@ const getCategoriesCenter = (createManager) => {
         .then((res) => {
             res.data.categories.map((e) => {
                 createManager ? formCreateManager.category.innerHTML += `<option value="${e.id}">${e.name}</option>`
-                : formUpdateManager.category.innerHTML += `<option value="${e.id}">${e.name}</option>`;
+                    : formUpdateManager.category.innerHTML += `<option value="${e.id}">${e.name}</option>`;
             })
         })
         .catch((err) => {
@@ -160,11 +160,42 @@ window.updateManager = (id) => {
             </div>
         </div>
     </div>`
-    updateManagerModal.classList.toggle('hidden')
-    getCategoriesCenter(false);
+        updateManagerModal.classList.toggle('hidden')
+        getCategoriesCenter(false);
 
     })
         .catch((err) => {
             console.log(err)
         })
+}
+// submit update SubAdmin
+if (formUpdateManager) {
+    formUpdateManager.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const fName = formUpdateManager.fName.value;
+        const lName = formUpdateManager.lName.value;
+        const idCenter = formUpdateManager.category.value;
+        const id = formUpdateManager.managerId.value;
+        const manager = new Manager(id, lName, fName, null, null, idCenter)
+        manager.update()
+            .then((res) => {
+                // updated
+                updateManagerModal.classList.toggle('hidden')//To hide the modal
+                getAllManagerCenter()//to refresh the list
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Update with Success',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch((err) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+    })
 }
