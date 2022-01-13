@@ -58,9 +58,9 @@
         <div class="flex-1 p-10 font-bold">
             <div class="w-full mt-12">
                 <p class="md:text-xl pb-3 flex items-center">
-                    <i class="fas fa-user-plus mr-3"></i> Add New Manager
+                    <i class="fas fa-user-plus mr-3"></i> Add New Promotion
                 </p>
-                <button onclick="modalCreateManager()"
+                <button onclick="modalCreatePromo()"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline">Add</button>
             </div>
             <!-- table -->
@@ -75,19 +75,13 @@
                             <tr>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Name</th>
+                                    Percentage</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Last Name</th>
+                                    Points Fidelity</th>
                                 <th
                                     class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Email</th>
-                                <th
-                                    class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    category</th>
-                                <th
-                                    class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
-                                    Action</th>
+                                    Product</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -100,63 +94,47 @@
         </div>
         <!--  -->
     </div>
-    <!-- modal for create Manager-->
-    <div class="createManagerModal hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title"
+    <!-- modal for create promo-->
+    <div class="createPromoModal hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title"
         role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <form action="" id="formCreateManager"
+            <form action="" id="formCreatePromo"
                 class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
                         <!--  -->
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                             <h3 class="text-lg leading-6 font-bold text-gray-900" id="modal-title">
-                                Create Manager
+                                Create a Promotion
                             </h3>
                             <div class="mt-2 space-y-4 text-gray-700 ">
                                 <!-- input -->
 
                                 <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
                                     <div class="w-full px-2 md:w-1/2">
-                                        <label class="block mb-1" for="fName">First name</label>
+                                        <label class="block mb-1" for="percentage">Percentage %</label>
                                         <input
                                             class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
-                                            type="text" name="fName" />
+                                            type="number" name="percentage" />
                                     </div>
                                     <div class="w-full px-2 md:w-1/2">
-                                        <label class="block mb-1" for="lName">Last name</label>
+                                        <label class="block mb-1" for="pointsFidelity">Points Fidelity</label>
                                         <input
                                             class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
-                                            type="text" name="lName" />
+                                            type="number" name="pointsFidelity" />
                                     </div>
                                 </div>
                                 <div class="flex flex-wrap">
                                     <div class="w-full">
-                                        <label class="block mb-1" for="email">Email</label>
-                                        <input
-                                            class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
-                                            type="email" name="email" />
-                                    </div>
-                                </div>
-                                <div class="flex flex-wrap">
-                                    <div class="w-full">
-                                        <label class="block mb-1" for="password">Password</label>
-                                        <input
-                                            class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline"
-                                            type="password" name="password" />
-                                    </div>
-                                </div>
-                                <div class="flex flex-wrap">
-                                    <div class="w-full">
-                                        <label class="block mb-1" for="category">Cantegory</label>
+                                        <label class="block mb-1" for="product">Product</label>
                                         <div class="relative inline-block w-full text-gray-700">
-                                            <select name="category"
+                                            <select name="product"
                                                 class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline">
-                                                <option value="" selected disabled hidden>Choose a category</option>
+                                                <option value="" selected disabled hidden>Choose a Product</option>
                                             </select>
                                             <div
                                                 class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -180,7 +158,7 @@
                         class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
                         Submit
                     </button>
-                    <button type="button" onclick="modalCreateManager()"
+                    <button type="button" onclick="modalCreatePromo()"
                         class="mt-3 w-full inline-flex justify-center rounded-md border border-red-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-red-700 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                         Cancel
                     </button>
@@ -190,15 +168,15 @@
         </div>
     </div>
     <!--  -->
-    <!-- lodal for update Manager info -->
-    <div class="updateManagerModal hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title"
+    <!-- lodal for update Promo info -->
+    <div class="updatePromoModal hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title"
         role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
 
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <form action="" id="formUpdateManager"
+            <form action="" id="formUpdatePromo"
                 class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
@@ -207,7 +185,7 @@
                             <h3 class="text-lg leading-6 font-bold text-gray-900" id="modal-title">
                                 Update Sub Admin Information
                             </h3>
-                            <div class="mt-2 space-y-4 text-gray-700 contentModalUpdateManager">
+                            <div class="mt-2 space-y-4 text-gray-700 contentModalUpdatePromo">
                                 <!-- input -->
                             </div>
                         </div>
@@ -218,7 +196,7 @@
                         class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
                         Submit
                     </button>
-                    <button type="button" onclick="modalUpdateManager()"
+                    <button type="button" onclick="modalUpdatePromo()"
                         class="mt-3 w-full inline-flex justify-center rounded-md border border-red-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-red-700 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                         Cancel
                     </button>
@@ -235,7 +213,7 @@
 <!-- modal -->
 <script src="/src/assets/js/modals.js"></script>
 <!-- process sub admin -->
-<script type="module" src="/src/app/services/subAdmin/processManager.js"></script>
+<script type="module" src="/src/app/services/subAdmin/processPromo.js"></script>
 <!-- sweetalert -->
 <script src="/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 <!-- auth -->

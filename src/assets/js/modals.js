@@ -18,3 +18,16 @@ function modalCreateManager(){
 function modalUpdateManager(){
     updateManagerModal.classList.toggle('hidden');
 }
+
+/* Promotions modal */
+const createPromoModal = document.querySelector('.createPromoModal');
+const updatePromoModal = document.querySelector('.updatePromoModal');
+
+function modalCreatePromo(){
+    createPromoModal.classList.toggle('hidden');
+    
+}
+function modalUpdatePromo(){
+    updatePromoModal.classList.toggle('hidden');
+
+}
