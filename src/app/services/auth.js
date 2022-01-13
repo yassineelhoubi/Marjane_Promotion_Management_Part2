@@ -9,7 +9,7 @@ window.asManager = () => {
     role.value = "manager"
     btnSubAdmin.classList.remove('bg-blue-700', 'text-white')
     btnManager.classList.add('bg-blue-700', 'text-white')
-    
+
 }
 window.asSubAdmin = () => {
     btnSubAdmin.classList.add('bg-blue-700', 'text-white')
@@ -78,4 +78,9 @@ if (loginForm) {
         }
 
     })
+}
+
+window.logout = () => {
+    localStorage.removeItem("token");
+    location.href = '../index.html';
 }
