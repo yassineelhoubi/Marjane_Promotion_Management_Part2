@@ -21,9 +21,20 @@ export default class Promotion {
                 pointsFidelity: this.pointsFidelity,
                 idProduct: this.idProduct
             }
-
-            console.log(obj)
             axios.post("http://localhost:3000/api/subAdmin/createPromo", obj, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
+
+    read() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: {
+                    'Authorization': "Bearer " + localStorage.getItem('token')
+                }
+            }
+            axios.get("http://localhost:3000/api/subAdmin/getPromotionsCenter", config)
                 .then((res) => { resolve(res); })
                 .catch((err) => { reject(err); })
         });

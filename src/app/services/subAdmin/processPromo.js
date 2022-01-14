@@ -3,8 +3,10 @@ import Promotion from "../../models/Promotion.js"
 
 const formCreatePromo = document.querySelector('#formCreatePromo'); //Form for create a new promotion
 const createPromoModal = document.querySelector('.createPromoModal');//modal for create promo
+const promoList = document.querySelector('tbody');//table body //list of promotion
 window.onLoad = () => {
-    getProductsCenter()
+    getProductsCenter();
+    getPromotionsCenter();
 
 }
 const getProductsCenter = () => {
@@ -31,6 +33,7 @@ if (formCreatePromo) {
         promo.create()
             .then((res) => {
                 console.log(res);
+                getPromotionsCenter()
                 if (res.data.status === true) {
                     createPromoModal.classList.toggle('hidden')
                     Swal.fire({
@@ -54,4 +57,24 @@ if (formCreatePromo) {
                 })
             })
     })
+}
+
+const getPromotionsCenter = () => {
+    const promo = new Promotion()
+    promo.read().then(async (res) => {
+        var output = ``;
+        await res.data.forEach((e) => {
+            output += `<tr class="hover:bg-grey-lighter">
+                <td class="py-4  px-6  border-b border-grey-light">${e.Product.name}</td>
+                <td class="py-4  px-6  border-b border-grey-light">${e.Product.category.name}</td>
+                <td class="py-4  px-6  border-b border-grey-light">${e.percentage} %</td>
+                <td class="py-4  px-6  border-b border-grey-light">${e.pointsFidelity}</td>
+                <td class="py-4  px-6  border-b border-grey-light">${e.status}</td>
+                </tr>`
+        })
+        promoList.innerHTML = output
+    })
+        .catch((err) => {
+            console.log(err)
+        })
 }
