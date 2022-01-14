@@ -50,7 +50,7 @@ export default class SubAdmin {
             const config = {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             };
-            axios.put("http://localhost:3000/api/admin/removeCenter/" + this.id, config)
+            axios.put("http://localhost:3000/api/admin/removeCenter/" + this.id, {}, config)
                 .then((res) => { resolve(res); })
                 .catch((err) => { reject(err); })
 
