@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager</title>
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/assets/css/style.css">
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
+    <script defer src="../../services/manager/isManager.js"></script>
+</head>
+
+<body class="hidden">
+    <div class="relative min-h-screen md:flex">
+        <!-- mobile menu bar -->
+        <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
+            <!-- logo -->
+            <a href="" class="block p-4 text-white font-bold">Marjane</a>
+            <!-- mobile menu button -->
+            <button class=" mobileMenuBtn p-4 focus:outline-none focus:bg-gray-700">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- sidebar -->
+        <div
+            class="sidebar bg-blue-800 text-blue-100 w-64 space-y-6 px-2 py-7 absolute md:relative inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out ">
+
+            <div>
+                <a href="#" class="text-white flex items-end space-x-2 px-4">
+                    <img src="/src/assets/img/logo3.png" class="h-10 w-10" alt="logo marjane">
+                    <span class="font-extrabold text-2xl">Marjane</span>
+                </a>
+                <div class="pt-4 flex justify-center">
+                    <button onclick="logout()" type="button"
+                        class="text-white bg-blue-400 hover:bg-blue-600  font-medium rounded-lg text-sm px-5 py-2.5 text-center">Logout</button>
+                </div>
+                <nav class="pt-8">
+                    <a href="dashboard.html"
+                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                        Dashboard
+                    </a>
+                    <a href="promotions.html"
+                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                        Promotion
+                    </a>
+                    <a href=""
+                        class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-lg hover:text-white">
+                        test
+                    </a>
+                </nav>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="flex-1 p-10 mt-12 font-bold">
+            <main class="w-full flex-grow">
+                <h2 class="text-3xl text-black pb-6">Dashboard</h2>
+                <div class="flex flex-wrap mt-6">
+                    <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
+                        <p class="text-lg pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i></i> Promotions By Center
+                        </p>
+                        <div class="p-6 bg-white">
+                            <canvas id="chartOne" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 pl-0 lg:pl-2 mt-12 lg:mt-0">
+                        <p class="text-lg pb-3 flex items-center">
+                            <i class="fas fa-check mr-3"></i> Promotions Accepted
+                        </p>
+                        <div class="p-6 bg-white">
+                            <canvas id="chartTwo" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!--  -->
+    </div>
+
+</body>
+<!--Graphs -->
+<script src="/node_modules/chart.js/dist/chart.js"></script>
+<script src="/src/assets/js/graphs.js"></script>
+<!-- Style -->
+<script src="/src/assets/js/style.js"></script>
+<!-- auth -->
+<script type="module" src="/src/app/services/auth.js"></script>
+
+</html>
