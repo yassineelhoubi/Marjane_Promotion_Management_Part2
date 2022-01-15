@@ -70,6 +70,7 @@ const getPromotionsCenter = () => {
                 <td class="py-4  px-6  border-b border-grey-light">${e.percentage} %</td>
                 <td class="py-4  px-6  border-b border-grey-light">${e.pointsFidelity}</td>
                 <td class="py-4  px-6  border-b border-grey-light">${e.status}</td>
+                <td class="py-4  px-6  border-b border-grey-light">${e.comment}</td>
                 </tr>`
         })
         promoList.innerHTML = output
