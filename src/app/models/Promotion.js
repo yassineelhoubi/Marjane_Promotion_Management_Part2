@@ -27,7 +27,7 @@ export default class Promotion {
         });
     }
 
-    read() {
+    getPromotionsCenter() {
         return new Promise((resolve, reject) => {
             const config = {
                 headers: {
@@ -35,6 +35,18 @@ export default class Promotion {
                 }
             }
             axios.get("http://localhost:3000/api/subAdmin/getPromotionsCenter", config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
+    getManagerPromotions() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: {
+                    'Authorization': "Bearer " + localStorage.getItem('token')
+                }
+            }
+            axios.get("http://localhost:3000/api/manager/getManagerPromotions", config)
                 .then((res) => { resolve(res); })
                 .catch((err) => { reject(err); })
         });

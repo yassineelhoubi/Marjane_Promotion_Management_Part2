@@ -143,7 +143,7 @@ window.updateManager = (id) => {
     </div>
     <div class="flex flex-wrap">
         <div class="w-full">
-            <label class="block mb-1" for="center">Center</label>
+            <label class="block mb-1" for="center">Category</label>
             <div class="relative inline-block w-full text-gray-700">
                 <select name="category" value="${obj.idCategory}"
                     class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline">

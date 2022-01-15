@@ -61,7 +61,7 @@ if (formCreatePromo) {
 
 const getPromotionsCenter = () => {
     const promo = new Promotion()
-    promo.read().then(async (res) => {
+    promo.getPromotionsCenter().then(async (res) => {
         var output = ``;
         await res.data.forEach((e) => {
             output += `<tr class="hover:bg-grey-lighter">
