@@ -51,5 +51,21 @@ export default class Promotion {
                 .catch((err) => { reject(err); })
         });
     }
+    promoValidate() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: {
+                    'Authorization': "Bearer " + localStorage.getItem('token')
+                }
+            }
+            const obj = {
+                comment: this.comment,
+                status: this.status,
+            }
+            axios.patch("http://localhost:3000/api/manager/promoValidate/" + this.id, obj, config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
 
 }
