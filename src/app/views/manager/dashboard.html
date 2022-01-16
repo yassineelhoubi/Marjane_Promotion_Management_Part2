@@ -13,7 +13,7 @@
     <script defer src="../../services/manager/isManager.js"></script>
 </head>
 
-<body class="hidden">
+<body class="hidden" onload="onLoad()">
     <div class="relative min-h-screen md:flex">
         <!-- mobile menu bar -->
         <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden">
@@ -56,7 +56,7 @@
                 <div class="flex flex-wrap mt-6">
                     <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
                         <p class="text-lg pb-3 flex items-center">
-                            <i class="fas fa-check mr-3"></i></i> Promotions By Center
+                            <i class="fas fa-check mr-3"></i></i> Promotions Status Bar
                         </p>
                         <div class="p-6 bg-white">
                             <canvas id="chartOne" width="400" height="200"></canvas>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="w-full lg:w-1/2 pl-0 lg:pl-2 mt-12 lg:mt-0">
                         <p class="text-lg pb-3 flex items-center">
-                            <i class="fas fa-check mr-3"></i> Promotions Accepted
+                            <i class="fas fa-check mr-3"></i> Promotions Status Line
                         </p>
                         <div class="p-6 bg-white">
                             <canvas id="chartTwo" width="400" height="200"></canvas>
@@ -79,7 +79,7 @@
 </body>
 <!--Graphs -->
 <script src="/node_modules/chart.js/dist/chart.js"></script>
-<script src="/src/assets/js/graphs.js"></script>
+<script type="module" src="/src/app/services/statistic.js"></script>
 <!-- Style -->
 <script src="/src/assets/js/style.js"></script>
 <!-- auth -->

@@ -67,5 +67,17 @@ export default class Promotion {
                 .catch((err) => { reject(err); })
         });
     }
+    getAllPromotions() {
+        return new Promise((resolve, reject) => {
+            const config = {
+                headers: {
+                    'Authorization': "Bearer " + localStorage.getItem('token')
+                }
+            }
+            axios.get("http://localhost:3000/api/admin/getAllPromotions", config)
+                .then((res) => { resolve(res); })
+                .catch((err) => { reject(err); })
+        });
+    }
 
 }
